@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 3 — Funções</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Módulo 3 — Funções</h1>
+    <p><a href="index.html">← Voltar à página inicial</a></p>
+    <hr />
+  </header>
+
+  <main>
+    <section>
+      <h2>Explicação</h2>
+      <p>
+        Uma <strong>função</strong> é como uma receita ou uma máquina no código:
+        você dá ingredientes (valores de entrada, chamados <em>parâmetros</em>),
+        a função segue um passo a passo (o <em>bloco de código</em>) e pode
+        devolver um resultado (o <em>retorno</em>).
+      </p>
+      <p>
+        Criar funções é importante porque:
+      </p>
+      <ul>
+        <li>Evita repetir código várias vezes.</li>
+        <li>Organiza melhor o programa.</li>
+        <li>Facilita alterações futuras (muda só na função, e não em todos os lugares).</li>
+      </ul>
+
+      <h3>Como declarar uma função</h3>
+      <p>Existem 3 formas principais de criar funções em JavaScript:</p>
+      <ul>
+        <li><strong>Declaração tradicional:</strong>
+          <pre><code>&lt;script&gt;
+function soma(a, b) {
+  return a + b;
+}
+&lt;/script&gt;</code></pre>
+          👉 Aqui não usamos <code>let</code> nem <code>const</code>, porque a palavra-chave
+          <code>function</code> já cria a função com nome.
+        </li>
+
+        <li><strong>Expressão de função:</strong>
+          <pre><code>&lt;script&gt;
+const subtrair = function(a, b) {
+  return a - b;
+};
+&lt;/script&gt;</code></pre>
+          👉 Aqui usamos <code>const</code> para guardar a função dentro de uma variável.
+          É boa prática usar <code>const</code>, porque normalmente não queremos
+          reatribuir a função depois.
+        </li>
+
+        <li><strong>Arrow function (função flecha):</strong>
+          <pre><code>&lt;script&gt;
+const multiplicar = (a, b) =&gt; {
+  return a * b;
+};
+&lt;/script&gt;</code></pre>
+          👉 É uma forma mais curta de escrever funções. Também guardamos em <code>const</code>.
+        </li>
+      </ul>
+
+      <h3>Parâmetros e Retorno</h3>
+      <p>
+        <strong>Parâmetros</strong> → valores que entram na função.<br>
+        <strong>Retorno</strong> → valor que a função entrega de volta com <code>return</code>.
+      </p>
+      <p>
+        Se a função não tiver <code>return</code>, ela apenas executa uma ação, como mostrar
+        uma mensagem, mas não devolve nada.
+      </p>
+
+      <h3>✍️ Suas anotações sobre a explicação</h3>
+      <textarea rows="6" cols="90" placeholder="Explique com suas palavras o que é função, o que são parâmetros e retorno. Quando você usaria cada tipo (function, const com arrow function)..."></textarea>
+    </section>
+
+    <section>
+      <h2>Exemplo com retorno</h2>
+      <pre><code>&lt;script&gt;
+function soma(a, b) {
+  return a + b; // devolve o resultado
+}
+
+console.log(soma(5, 7)); // saída: 12
+&lt;/script&gt;</code></pre>
+      <p>
+        👉 O fluxo é: <br>
+        Entrada: <code>a = 5</code>, <code>b = 7</code><br>
+        Processamento: soma os dois números<br>
+        Saída (retorno): <code>12</code>
+      </p>
+      <h3>🧪 Anotações após o exemplo</h3>
+      <textarea rows="6" cols="90" placeholder="Descreva o fluxo do exemplo: entrada → processamento → saída."></textarea>
+    </section>
+
+    <section>
+      <h2>Exemplo sem retorno</h2>
+      <pre><code>&lt;script&gt;
+function mostrarMensagem(nome) {
+  console.log("Olá, " + nome + "!");
+}
+
+mostrarMensagem("Felipe"); // saída: Olá, Felipe!
+&lt;/script&gt;</code></pre>
+      <p>
+        👉 Aqui não usamos <code>return</code>.  
+        A função apenas executa a ação (mostrar no console).  
+        Se tentássemos guardar o valor numa variável, receberíamos <code>undefined</code>.
+      </p>
+      <h3>🧪 Anotações após o exemplo sem retorno</h3>
+      <textarea rows="6" cols="90" placeholder="Qual a diferença entre usar return e apenas exibir algo no console?"></textarea>
+    </section>
+
+    <section>
+      <h2>Exercícios</h2>
+      <ol>
+        <li>Crie uma função que multiplique dois números e retorne o resultado.</li>
+        <li>Crie uma função <code>ehPar(n)</code> que retorne <code>true</code> se <code>n</code> for par e <code>false</code> se for ímpar.</li>
+        <li>Crie uma função <code>saudar(nome)</code> que retorne "Bem-vindo, [nome]".</li>
+        <li>(Extra) Crie uma função que receba a idade e diga se a pessoa é maior de idade ou não.</li>
+      </ol>
+    </section>
+
+    <section>
+      <details>
+        <summary>Ver gabarito resumido</summary>
+
+        <h4>Exercício 1</h4>
+        <pre><code>&lt;script&gt;
+const multiplicar = (a, b) =&gt; {
+  return a * b;
+};
+console.log(multiplicar(3, 4)); // 12
+&lt;/script&gt;</code></pre>
+
+        <h4>Exercício 2</h4>
+        <pre><code>&lt;script&gt;
+const ehPar = (n) =&gt; {
+  return n % 2 === 0;
+};
+console.log(ehPar(10)); // true
+console.log(ehPar(7));  // false
+&lt;/script&gt;</code></pre>
+
+        <h4>Exercício 3</h4>
+        <pre><code>&lt;script&gt;
+const saudar = (nome) =&gt; {
+  return "Bem-vindo, " + nome;
+};
+console.log(saudar("Felipe"));
+&lt;/script&gt;</code></pre>
+
+        <h4>Exercício Extra</h4>
+        <pre><code>&lt;script&gt;
+const verificarIdade = (idade) =&gt; {
+  if (idade &gt;= 18) {
+    return "Maior de idade";
+  } else {
+    return "Menor de idade";
+  }
+};
+console.log(verificarIdade(20)); // Maior de idade
+&lt;/script&gt;</code></pre>
+      </details>
+    </section>
+  </main>
+
+  <script>
+    const idade = Number (prompt("Digite sua idade")); {
+    if (idade => 18){
+        return "Maior de idade"
+    }
+} {
+    else (idade <= 19)
+        return "Menor de idade"   
+};
+console.log (idade);
+  // Salvar anotações automaticamente
+  document.querySelectorAll("textarea").forEach(textarea => {
+    const key = textarea.name || textarea.placeholder;
+    textarea.value = localStorage.getItem(key) || "";
+    textarea.addEventListener("input", () => {
+      localStorage.setItem(key, textarea.value);
+    });
+  });
+  </script>
+
+  <footer>
+    <hr />
+    <p><a href="index.html">← Voltar à página inicial</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 1 — Variáveis e Tipos de Dados</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Módulo 1 — Variáveis e Tipos de Dados</h1>
+    <p><a href="index.html">← Voltar à página inicial</a></p>
+    <hr />
+  </header>
+
+  <main>
+ <section>
+  <h2>Explicação</h2>
+  <p>
+    Em programação, <strong>variáveis</strong> funcionam como <em>caixas com um nome</em>,
+    onde podemos guardar informações que o computador usará depois.  
+    O <strong>nome</strong> da variável serve para identificá-la e o <strong>valor</strong>
+    é o que está dentro dela.
+  </p>
+
+  <h3>Como criar variáveis em JavaScript</h3>
+  <p>
+    Hoje usamos principalmente <code>let</code> e <code>const</code>:
+  </p>
+  <ul>
+    <li><code>let</code>: cria uma variável que pode mudar de valor.</li>
+    <li><code>const</code>: cria uma variável que <strong>não muda</strong> (constante).</li>
+  </ul>
+  <p>
+    Exemplo:
+  </p>
+  <pre><code>&lt;script&gt;
+let nome = "Felipe"; // pode mudar depois
+const PI = 3.14;     // não pode ser alterada
+&lt;/script&gt;</code></pre>
+
+  <h3>Tipos mais comuns de dados</h3>
+  <p>Cada valor em JavaScript tem um <strong>tipo</strong>. Os principais são:</p>
+  <ul>
+    <li><strong>String</strong>: textos entre aspas. Exemplo: <code>"Felipe"</code> ou <code>'Olá'</code>.</li>
+    <li><strong>Number</strong>: números inteiros ou decimais. Exemplo: <code>28</code> ou <code>1.75</code>.</li>
+    <li><strong>Boolean</strong>: valores lógicos: <code>true</code> (verdadeiro) ou <code>false</code> (falso).</li>
+    <li><strong>Undefined</strong>: variável criada mas sem valor atribuído ainda. Exemplo:
+      <pre><code>let idade; // undefined</code></pre>
+    </li>
+    <li><strong>Null</strong>: valor propositalmente vazio, para indicar ausência de dado. Exemplo:
+      <pre><code>let carro = null; // significa "nenhum carro"</code></pre>
+    </li>
+  </ul>
+
+  <h3>Observação importante</h3>
+  <p>
+    JavaScript é uma <strong>linguagem de tipagem dinâmica</strong>.  
+    Isso significa que uma mesma variável pode guardar valores de tipos diferentes
+    em momentos diferentes:
+  </p>
+  <pre><code>&lt;script&gt;
+let x = 10;      // agora é um número
+x = "dez";       // agora virou uma string
+&lt;/script&gt;</code></pre>
+
+  <h3>✍️ Suas anotações sobre a explicação</h3>
+  <textarea rows="6" cols="90" placeholder="Explique com suas palavras o que são variáveis, como criá-las e os principais tipos..."></textarea>
+</section>
+
+
+    <section>
+      <h2>Exemplo</h2>
+      <pre><code>&lt;script&gt;
+var nome = "Felipe";      // string
+var idade = 28;           // number
+var temCarro = true;      // boolean
+
+console.log(nome);
+console.log(idade);
+console.log(temCarro);
+&lt;/script&gt;</code></pre>
+      <h3>🧪 Anotações após o exemplo</h3>
+      <textarea rows="6" cols="90" placeholder="O que você observou no exemplo? O que imprimiu no console?"></textarea>
+    </section>
+
+    <section>
+      <h2>Exercícios</h2>
+      <ol>
+        <li>Crie uma variável <code>cidade</code> e mostre no console.</li>
+        <li>Crie uma variável <code>altura</code> com número decimal.</li>
+        <li>Crie uma variável <code>chovendo</code> com <code>true</code> ou <code>false</code>.</li>
+      </ol>
+    </section>
+
+    <section>
+      <details>
+        <summary>Ver gabarito resumido</summary>
+        <pre><code>&lt;script&gt;
+var cidade = "Sua cidade atual";
+var altura = 1.75;
+var chovendo = false;
+console.log(cidade, altura, chovendo);
+&lt;/script&gt;</code></pre>
+      </details>
+    </section>
+  </main>
+
+  <script>
+  // Pega todos os textareas da página
+  document.querySelectorAll("textarea").forEach(textarea => {
+    const key = textarea.name || textarea.placeholder; // chave única
+
+    // Recupera valor salvo (se existir)
+    textarea.value = localStorage.getItem(key) || "";
+
+    // Sempre que o usuário digitar, salva
+    textarea.addEventListener("input", () => {
+      localStorage.setItem(key, textarea.value);
+    });
+  });
+</script>
+
+
+  <footer>
+    <hr />
+    <p><a href="index.html">← Voltar à página inicial</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 4 — Arrays (Listas)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Módulo 4 — Arrays (Listas)</h1>
+    <p><a href="index.html">← Voltar à página inicial</a></p>
+    <hr />
+  </header>
+
+  <main>
+    <section>
+      <h2>Explicação</h2>
+      <p>
+        Um <strong>array</strong> é uma <em>lista ordenada</em> de valores.
+        Cada valor fica em uma posição chamada <strong>índice</strong>, e o primeiro índice é sempre <strong>0</strong>.
+        Usamos <code>[]</code> (colchetes) para criar e acessar elementos.
+      </p>
+      <ul>
+        <li><strong>Acessar por índice:</strong> <code>lista[0]</code> pega o primeiro item; <code>lista[lista.length - 1]</code> pega o último.</li>
+        <li><strong>Tamanho:</strong> <code>.length</code> indica quantos elementos existem no array.</li>
+        <li><strong>Importante:</strong> <code>const</code> em arrays impede <em>reatribuir</em> a variável, mas você pode <em>alterar o conteúdo</em> (mutável).</li>
+      </ul>
+      <pre><code>&lt;script&gt;
+// const: não reatribui a variável, mas pode alterar o conteúdo (mutável)
+const frutas = ["maçã", "banana", "uva"];
+console.log(frutas[0]);              // "maçã"
+console.log(frutas.length);          // 3
+frutas[1] = "laranja";               // altera o item na posição 1
+console.log(frutas);                 // ["maçã", "laranja", "uva"]
+// frutas = []  // ❌ ERRO: reatribuição não permitida com const
+&lt;/script&gt;</code></pre>
+
+      <h3>Métodos essenciais</h3>
+      <ul>
+        <li><code>push(item)</code>: adiciona no final.</li>
+        <li><code>pop()</code>: remove o último.</li>
+        <li><code>unshift(item)</code>: adiciona no começo.</li>
+        <li><code>shift()</code>: remove o primeiro.</li>
+        <li><code>includes(valor)</code>: verifica se existe (true/false).</li>
+        <li><code>indexOf(valor)</code>: retorna o índice ou <code>-1</code> se não achar.</li>
+        <li><code>slice(início, fim)</code>: copia uma parte (não altera o original).</li>
+        <li><code>splice(início, quantos, ...novos)</code>: remove/insere (altera o original).</li>
+      </ul>
+
+      <h3>Iterando (percorrendo a lista)</h3>
+      <ul>
+        <li><strong>for clássico:</strong> controle total de índices.</li>
+        <li><strong>for...of:</strong> percorre valores de forma simples.</li>
+        <li><strong>forEach:</strong> executa uma função para cada item.</li>
+      </ul>
+
+      <h3>Erros comuns</h3>
+      <ul>
+        <li>Acessar um índice que não existe retorna <code>undefined</code> (não quebra o programa, mas atenção).</li>
+        <li>Confundir <code>length</code> (quantidade) com o último índice (<code>length - 1</code>).</li>
+      </ul>
+
+      <h3>✍️ Suas anotações sobre a explicação</h3>
+      <textarea rows="6" cols="90" placeholder="Quando usar arrays? Como acessar, alterar e percorrer? Diferença entre const e mutabilidade do conteúdo..."></textarea>
+    </section>
+
+    <section>
+      <h2>Exemplos práticos</h2>
+
+      <h3>1) Criar, acessar e alterar</h3>
+      <pre><code>&lt;script&gt;
+const frutas = ["maçã", "banana", "uva"];
+console.log(frutas[0]); // "maçã"
+frutas[2] = "abacaxi";  // altera a posição 2
+console.log(frutas);    // ["maçã","banana","abacaxi"]
+&lt;/script&gt;</code></pre>
+
+      <h3>2) Adicionar e remover</h3>
+      <pre><code>&lt;script&gt;
+const fila = ["Ana", "Bia"];
+fila.push("Carlos");     // ["Ana","Bia","Carlos"]
+fila.unshift("Zeca");    // ["Zeca","Ana","Bia","Carlos"]
+fila.pop();              // remove "Carlos"
+fila.shift();            // remove "Zeca"
+console.log(fila);       // ["Ana","Bia"]
+&lt;/script&gt;</code></pre>
+
+      <h3>3) Buscar e copiar partes</h3>
+      <pre><code>&lt;script&gt;
+const numeros = [10, 20, 30, 40, 50];
+console.log(numeros.includes(20));   // true
+console.log(numeros.indexOf(30));    // 2
+const primeiros = numeros.slice(0, 3); // [10,20,30] (não altera o original)
+console.log(primeiros, numeros);
+&lt;/script&gt;</code></pre>
+
+      <h3>4) Remover/Inserir no meio (splice)</h3>
+      <pre><code>&lt;script&gt;
+const cores = ["azul","verde","amarelo","preto"];
+cores.splice(1, 1);          // remove 1 a partir do índice 1 → remove "verde"
+cores.splice(2, 0, "branco"); // insere "branco" no índice 2
+console.log(cores);          // ["azul","amarelo","branco","preto"]
+&lt;/script&gt;</code></pre>
+
+      <h3>5) Percorrer</h3>
+      <pre><code>&lt;script&gt;
+const linguagens = ["JS","Python","Go"];
+
+// for clássico
+for (let i = 0; i &lt; linguagens.length; i++) {
+  console.log(i, linguagens[i]);
+}
+
+// for...of (valores)
+for (const lang of linguagens) {
+  console.log(lang);
+}
+
+// forEach (função para cada item)
+linguagens.forEach((lang, i) =&gt; {
+  console.log(`#${i}: ${lang}`);
+});
+&lt;/script&gt;</code></pre>
+
+      <h3>🧪 Anotações após os exemplos</h3>
+      <textarea rows="6" cols="90" placeholder="Quais métodos você testou? O que cada um faz? Quando usar slice vs splice?"></textarea>
+    </section>
+
+    <section>
+      <h2>Exercícios</h2>
+      <ol>
+        <li>Crie um array com 4 cores e mostre a <strong>segunda</strong> cor.</li>
+        <li>Adicione uma nova cor com <code>push()</code> e mostre o array.</li>
+        <li>Remova a primeira cor com <code>shift()</code> e mostre o array.</li>
+        <li>Use <code>includes()</code> para verificar se uma cor específica existe no array.</li>
+        <li>Crie um array de números e gere um novo com apenas os <strong>três primeiros</strong> (use <code>slice</code>).</li>
+        <li>Em um array de frutas, remova a do <strong>índice 1</strong> e insira outra no lugar (use <code>splice</code>).</li>
+        <li>Percorra um array de nomes e imprima <code>#índice: nome</code> (pode usar <code>for</code>, <code>for...of</code> ou <code>forEach</code>).</li>
+      </ol>
+    </section>
+
+    <section>
+      <details>
+        <summary>Ver gabarito resumido</summary>
+
+        <h4>1) Segunda cor</h4>
+        <pre><code>&lt;script&gt;
+const cores = ["azul","verde","amarelo","vermelho"];
+console.log(cores[1]); // "verde"
+&lt;/script&gt;</code></pre>
+
+        <h4>2) push</h4>
+        <pre><code>&lt;script&gt;
+const cores2 = ["azul","verde","amarelo","vermelho"];
+cores2.push("roxo");
+console.log(cores2);
+&lt;/script&gt;</code></pre>
+
+        <h4>3) shift</h4>
+        <pre><code>&lt;script&gt;
+const cores3 = ["azul","verde","amarelo","vermelho"];
+cores3.shift(); // remove "azul"
+console.log(cores3);
+&lt;/script&gt;</code></pre>
+
+        <h4>4) includes</h4>
+        <pre><code>&lt;script&gt;
+const cores4 = ["azul","verde","amarelo","vermelho"];
+console.log(cores4.includes("verde"));   // true
+console.log(cores4.includes("marrom"));  // false
+&lt;/script&gt;</code></pre>
+
+        <h4>5) slice</h4>
+        <pre><code>&lt;script&gt;
+const numeros = [10, 20, 30, 40, 50];
+const primeiros3 = numeros.slice(0, 3);
+console.log(primeiros3);  // [10,20,30]
+console.log(numeros);     // original intacto
+&lt;/script&gt;</code></pre>
+
+        <h4>6) splice</h4>
+        <pre><code>&lt;script&gt;
+const frutas = ["maçã","banana","uva","pera"];
+frutas.splice(1, 1, "laranja"); // remove a do índice 1 e insere "laranja"
+console.log(frutas); // ["maçã","laranja","uva","pera"]
+&lt;/script&gt;</code></pre>
+
+        <h4>7) Percorrer</h4>
+        <pre><code>&lt;script&gt;
+const nomes = ["Ana","Bia","Caio"];
+nomes.forEach((nome, i) =&gt; {
+  console.log(`#${i}: ${nome}`);
+});
+&lt;/script&gt;</code></pre>
+
+      </details>
+    </section>
+  </main>
+
+  <script>
+    // Salvar anotações automaticamente
+    document.querySelectorAll("textarea").forEach(textarea => {
+      const key = textarea.name || textarea.placeholder; // chave única
+      textarea.value = localStorage.getItem(key) || "";
+      textarea.addEventListener("input", () => {
+        localStorage.setItem(key, textarea.value);
+      });
+    });
+  </script>
+
+  <footer>
+    <hr />
+    <p><a href="index.html">← Voltar à página inicial</a></p>
+  </footer>
+</body>
+</html>

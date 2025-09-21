@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 2 — Condições (Decisões Lógicas)</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Módulo 2 — Condições (Decisões Lógicas)</h1>
+    <p><a href="index.html">← Voltar à página inicial</a></p>
+    <hr />
+  </header>
+
+  <main>
+   <main>
+  <section>
+  <h2>Explicação</h2>
+<p>
+  Em programação, uma <strong>condição</strong> é um teste lógico que define 
+  <em>qual caminho o programa vai seguir</em>.  
+  É como uma tomada de decisão: <br>
+  👉 "Se chover, levo guarda-chuva. Senão, vou sem ele."
+</p>
+
+<p>
+  Em JavaScript, usamos principalmente:
+</p>
+<ul>
+  <li>
+    <code>if</code> — significa "se".  
+    O código dentro do <code>if</code> só roda se a condição for <code>true</code>.  
+    <br>Exemplo:  
+    <pre><code>&lt;script&gt;
+let idade = 20;
+if (idade &gt;= 18) {
+  console.log("Maior de idade");
+}
+&lt;/script&gt;</code></pre>
+  </li>
+
+  <li>
+    <code>else</code> — significa "senão".  
+    Ele cobre o caso contrário, quando o <code>if</code> não for verdadeiro.  
+    <br>Exemplo:  
+    <pre><code>&lt;script&gt;
+let idade = 16;
+if (idade &gt;= 18) {
+  console.log("Maior de idade");
+} else {
+  console.log("Menor de idade");
+}
+&lt;/script&gt;</code></pre>
+  </li>
+
+  <li>
+    <code>else if</code> — significa "senão, se...".  
+    Permite testar várias condições diferentes, uma de cada vez.  
+    <br>Exemplo:  
+    <pre><code>&lt;script&gt;
+let nota = 8;
+if (nota &gt;= 9) {
+  console.log("Excelente");
+} else if (nota &gt;= 7) {
+  console.log("Bom");
+} else {
+  console.log("Precisa melhorar");
+}
+&lt;/script&gt;</code></pre>
+  </li>
+
+  <li>
+    <code>switch</code> — usado quando há <strong>muitas opções</strong> para o mesmo valor.  
+    É como um menu de escolhas.  
+    <br>Exemplo:  
+    <pre><code>&lt;script&gt;
+const dia = 3;
+switch (dia) {
+  case 1: console.log("Domingo"); break;
+  case 2: console.log("Segunda"); break;
+  case 3: console.log("Terça"); break;
+  default: console.log("Valor inválido");
+}
+&lt;/script&gt;</code></pre>
+  </li>
+</ul>
+
+<p>
+  💡 Resumindo:  
+  - Use <code>if</code> / <code>else</code> quando tiver poucas condições.  
+  - Use <code>switch</code> quando precisar escolher entre várias opções possíveis do mesmo valor.
+</p>
+
+
+    <h3>Operadores Aritméticos</h3>
+    <p>
+      São usados para fazer cálculos matemáticos:
+    </p>
+    <ul>
+      <li><code>+</code> : adição ou concatenação (ex: <code>5 + 3</code> → 8; <code>"a" + "b"</code> → "ab")</li>
+      <li><code>-</code> : subtração (ex: <code>10 - 4</code> → 6)</li>
+      <li><code>*</code> : multiplicação (ex: <code>7 * 2</code> → 14)</li>
+      <li><code>/</code> : divisão (ex: <code>20 / 5</code> → 4)</li>
+      <li><code>%</code> : resto da divisão (ex: <code>10 % 3</code> → 1; <code>8 % 2</code> → 0)</li>
+      <li><code>**</code> : potência (ex: <code>2 ** 3</code> → 8)</li>
+    </ul>
+    <p>
+      💡 O operador <code>%</code> (módulo) é muito usado para saber se um número é par ou ímpar:
+      <br><code>n % 2 === 0</code> → verdadeiro se o número for par.
+    </p>
+
+    <h3>Operadores de Comparação</h3>
+    <p>
+      Servem para comparar valores. O resultado de uma comparação é sempre
+      <code>true</code> (verdadeiro) ou <code>false</code> (falso).
+    </p>
+    <ul>
+      <li><code>&gt;</code> : maior que (ex: <code>5 &gt; 3</code> → true)</li>
+      <li><code>&lt;</code> : menor que (ex: <code>2 &lt; 10</code> → true)</li>
+      <li><code>&gt;=</code> : maior ou igual (ex: <code>7 &gt;= 7</code> → true)</li>
+      <li><code>&lt;=</code> : menor ou igual (ex: <code>4 &lt;= 3</code> → false)</li>
+      <li><code>==</code> : igual em valor (ex: <code>5 == "5"</code> → true)</li>
+      <li><code>===</code> : igual em valor e tipo (ex: <code>5 === "5"</code> → false, porque um é número e o outro é texto)</li>
+      <li><code>!=</code> : diferente em valor (ex: <code>10 != 5</code> → true)</li>
+      <li><code>!==</code> : diferente em valor ou tipo (ex: <code>10 !== "10"</code> → true)</li>
+    </ul>
+
+    <h3>Operadores Lógicos</h3>
+    <p>
+      Permitem combinar várias condições em um só teste.
+    </p>
+    <ul>
+      <li><code>&amp;&amp;</code> (E): só é verdadeiro se <strong>todas</strong> as condições forem verdadeiras.
+        <br>Ex: <code>(idade &gt;= 18 &amp;&amp; idade &lt; 60)</code> → verdadeiro apenas se a idade estiver entre 18 e 59.
+      </li>
+      <li><code>||</code> (OU): é verdadeiro se <strong>pelo menos uma</strong> condição for verdadeira.
+        <br>Ex: <code>(dia === "sábado" || dia === "domingo")</code> → verdadeiro se o dia for sábado ou domingo.
+      </li>
+      <li><code>!</code> (NÃO): inverte o resultado. 
+        <br>Ex: <code>!(5 &gt; 3)</code> → falso, porque <code>5 &gt; 3</code> era verdadeiro.
+      </li>
+    </ul>
+
+    <h3>✍️ Suas anotações sobre a explicação</h3>
+    <textarea rows="6" cols="90" placeholder="Explique como funcionam os operadores aritméticos, comparações e operadores lógicos..."></textarea>
+  </section>
+</main>
+
+
+
+    <section>
+      <h2>Exemplo (if/else)</h2>
+      <pre><code>&lt;script&gt;
+var idade = 20;
+
+if (idade &gt;= 18) {
+  console.log("Você é maior de idade.");
+} else {
+  console.log("Você é menor de idade.");
+}
+&lt;/script&gt;</code></pre>
+      <h3>🧪 Anotações após o exemplo (if/else)</h3>
+      <textarea rows="6" cols="90" placeholder="O que determina qual bloco será executado?"></textarea>
+    </section>
+
+  <section>
+  <h2>Exemplo (switch)</h2>
+  <p>
+    O comando <code>switch</code> serve para escolher entre várias opções de valor.
+    No exemplo abaixo, a variável <code>dia</code> é criada com <code>const</code>
+    porque não pretendemos alterar o valor dela.
+    Cada número de <strong>1 a 7</strong> representa um dia da semana.
+  </p>
+
+  <pre><code>&lt;script&gt;
+const dia = 3; // 1 = Domingo ... 7 = Sábado
+
+switch (dia) {
+  case 1: console.log("Domingo"); break;
+  case 2: console.log("Segunda"); break;
+  case 3: console.log("Terça"); break;   // Como dia é 3, cai aqui
+  case 4: console.log("Quarta"); break;
+  case 5: console.log("Quinta"); break;
+  case 6: console.log("Sexta"); break;
+  case 7: console.log("Sábado"); break;
+  default: console.log("Valor inválido");
+}
+&lt;/script&gt;</code></pre>
+
+  <p>
+    👉 Nesse caso, como <code>dia = 3</code>, o programa mostra
+    <strong>"Terça"</strong> no console.
+    Se mudarmos para <code>const dia = 6</code>, a saída será <strong>"Sexta"</strong>.
+  </p>
+
+  <h3>Versão interativa</h3>
+  <p>
+    Se quisermos que o usuário digite o número do dia, usamos <code>let</code>
+    (porque o valor depende da entrada):
+  </p>
+  <pre><code>&lt;script&gt;
+let dia = Number(prompt("Digite um número de 1 a 7:"));
+
+switch (dia) {
+  case 1: alert("Domingo"); break;
+  case 2: alert("Segunda"); break;
+  case 3: alert("Terça"); break;
+  case 4: alert("Quarta"); break;
+  case 5: alert("Quinta"); break;
+  case 6: alert("Sexta"); break;
+  case 7: alert("Sábado"); break;
+  default: alert("Valor inválido");
+}
+&lt;/script&gt;</code></pre>
+
+  <h3>🧪 Anotações após o exemplo (switch)</h3>
+  <textarea rows="6" cols="90" placeholder="Quando usar switch em vez de if/else? Qual vantagem você percebe?"></textarea>
+</section>
+
+
+    <section>
+      <h2>Exercícios</h2>
+      <ol>
+        <li>Peça um número com <code>prompt</code> e diga se é positivo, negativo ou zero.</li>
+        <li>Crie uma variável <code>nota</code>. Se <code>&gt;= 7</code>: "Aprovado"; senão: "Reprovado".</li>
+        <li>Use <code>switch</code> para exibir o dia da semana (1 a 7).</li>
+      </ol>
+    </section>
+
+   <section>
+  <details>
+    <summary>Ver gabarito resumido</summary>
+
+    <h4>Exercício 1 — Positivo / Negativo / Zero</h4>
+    <pre><code>&lt;script&gt;
+const n = Number(prompt("Digite um número:"));
+if (Number.isNaN(n)) {
+  console.log("Valor inválido");
+} else if (n &gt; 0) {
+  console.log("Positivo");
+} else if (n &lt; 0) {
+  console.log("Negativo");
+} else {
+  console.log("Zero");
+}
+&lt;/script&gt;</code></pre>
+
+    <h4>Exercício 2 — Aprovado / Reprovado</h4>
+    <pre><code>&lt;script&gt;
+const nota = Number(prompt("Digite a nota (0 a 10):"));
+if (Number.isNaN(nota) || nota &lt; 0 || nota &gt; 10) {
+  console.log("Nota inválida");
+} else if (nota &gt;= 7) {
+  console.log("Aprovado");
+} else {
+  console.log("Reprovado");
+}
+&lt;/script&gt;</code></pre>
+
+    <h4>Exercício 3 — Dia da semana (switch)</h4>
+    <pre><code>&lt;script&gt;
+const dia = Number(prompt("Digite um número de 1 a 7:"));
+switch (dia) {
+  case 1: console.log("Domingo"); break;
+  case 2: console.log("Segunda"); break;
+  case 3: console.log("Terça"); break;
+  case 4: console.log("Quarta"); break;
+  case 5: console.log("Quinta"); break;
+  case 6: console.log("Sexta"); break;
+  case 7: console.log("Sábado"); break;
+  default: console.log("Valor inválido");
+}
+&lt;/script&gt;</code></pre>
+
+    <p><em>Dica:</em> use <code>Number(...)</code> para converter a string do <code>prompt</code> em número e verifique <code>Number.isNaN(...)</code> para evitar erros.</p>
+
+  </details>
+</section>
+
+
+    
+  <script>
+    // Pega todos os textareas da página
+    document.querySelectorAll("textarea").forEach(textarea => {
+      const key = textarea.name || textarea.placeholder; // chave única
+
+      // Recupera valor salvo (se existir)
+      textarea.value = localStorage.getItem(key) || "";
+
+      // Sempre que o usuário digitar, salva
+      textarea.addEventListener("input", () => {
+        localStorage.setItem(key, textarea.value);
+      });
+    });
+  </script>
+
+  <footer>
+    <hr />
+    <p><a href="index.html">← Voltar à página inicial</a></p>
+  </footer>
+</body>
+</html>
